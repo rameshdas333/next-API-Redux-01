@@ -7,13 +7,14 @@ export const cartSlice = createSlice({
   },
   reducers: {
     addToCart: (state,action) => {
+    
  
   const findIndex = state.value.findIndex((item )=> item.id == action.payload.id)
-  console.log(findIndex)
+  console.log(findIndex,"ram")
   if(findIndex >= 0){
-    state.value[findIndex].quentity += 1;
+    state.value[findIndex].quantity += 1;
   }else{
-    state.value.push({...action.payload,quentity: 1});
+    state.value.push({...action.payload, quantity: 1});
   }
     
     },
@@ -22,6 +23,6 @@ export const cartSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { increment ,addToCart} = cartSlice.actions
+export const { addToCart} = cartSlice.actions
 
 export default cartSlice.reducer
